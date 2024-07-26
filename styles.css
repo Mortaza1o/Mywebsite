@@ -1,101 +1,63 @@
-body {
+body, html {
     margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.game-container {
+    position: relative;
+    width: 100%;
     height: 100vh;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #f0f0f0;
 }
 
-.heart-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
+.score {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    color: #333;
 }
 
 .heart {
-    position: relative;
-    width: 150px;
-    height: 150px;
+    position: absolute;
+    width: 50px;
+    height: 50px;
     background-color: red;
     transform: rotate(-45deg);
-    transition: width 1s, height 1s;
-    margin: 20px;
+    cursor: pointer;
+    transition: transform 0.2s;
 }
 
 .heart::before,
 .heart::after {
     content: "";
     position: absolute;
-    width: 150px;
-    height: 150px;
+    width: 50px;
+    height: 50px;
     background-color: red;
     border-radius: 50%;
 }
 
 .heart::before {
-    top: -75px;
+    top: -25px;
     left: 0;
 }
 
 .heart::after {
     top: 0;
-    left: 75px;
+    left: 25px;
 }
 
-.login-form {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.login-form input {
-    margin: 5px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.login-form button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #333;
-    color: white;
-    cursor: pointer;
-}
-
-.login-form button:hover {
-    background-color: #555;
-}
-
-.message {
-    display: none;
-    color: white;
-    font-size: 20px;
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-}
-
-.heart.open {
-    width: 200px;
-    height: 200px;
-}
-
-.heart.open::before,
-.heart.open::after {
-    width: 200px;
-    height: 200px;
-}
-
-.heart.open .message {
-    display: block;
+.heart:hover {
+    transform: rotate(-45deg) scale(1.2);
 }
