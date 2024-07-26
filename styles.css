@@ -5,59 +5,44 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f0f0f0;
+    background-color: #000;
     font-family: Arial, sans-serif;
+    overflow: hidden;
 }
 
 .game-container {
     position: relative;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
-    overflow: hidden;
+    background-color: #000;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f0f0f0;
+    overflow: hidden;
 }
 
-.score {
+.score-board {
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 10px;
+    left: 10px;
     font-size: 24px;
-    color: #333;
+    color: #fff;
+    z-index: 10;
 }
 
-.heart {
+.star {
     position: absolute;
-    width: 50px;
-    height: 50px;
-    background-color: red;
-    transform: rotate(-45deg);
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.heart::before,
-.heart::after {
-    content: "";
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    background-color: red;
+    width: 20px;
+    height: 20px;
+    background-color: #ff0;
     border-radius: 50%;
+    box-shadow: 0 0 10px #ff0;
+    cursor: pointer;
+    animation: fall linear;
 }
 
-.heart::before {
-    top: -25px;
-    left: 0;
-}
-
-.heart::after {
-    top: 0;
-    left: 25px;
-}
-
-.heart:hover {
-    transform: rotate(-45deg) scale(1.2);
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
 }
