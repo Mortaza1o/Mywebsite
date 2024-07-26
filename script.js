@@ -1,22 +1,33 @@
+const gameArea = document.getElementById('gameArea');
 let score = 0;
 
-function moveHeart() {
-    const heart = document.getElementById('heart');
-    const container = document.querySelector('.game-container');
-    const maxX = container.clientWidth - heart.clientWidth;
-    const maxY = container.clientHeight - heart.clientHeight;
+function createStar() {
+    const star = document.createElement('div');
+    star.classList.add('star');
 
-    const randomX = Math.floor(Math.random() * maxX);
-    const randomY = Math.floor(Math.random() * maxY);
+    // تعيين موضع النجمة بشكل عشوائي في أعلى الشاشة
+    const startPosition = Math.floor(Math.random() * gameArea.offsetWidth);
+    star.style.left = `${startPosition}px`;
 
-    heart.style.left = `${randomX}px`;
-    heart.style.top = `${randomY}px`;
+    // تعيين مدة الحركة بشكل عشوائي بين 3 و 6 ثوانٍ
+    const duration = Math.random() * 3 + 3;
+    star.style.animationDuration = `${duration}s`;
+
+    star.addEventListener('click', () => {
+        score++;
+        document.getElementById('score').innerText = score;
+        star.remove();
+    });
+
+    star.addEventListener('animationend', () => {
+        star.remove();
+    });
+
+    gameArea.appendChild(star);
 }
 
-document.getElementById('heart').addEventListener('click', () => {
-    score++;
-    document.getElementById('score').innerText = score;
-    moveHeart();
-});
+function startGame() {
+    setInterval(createStar, 1000);
+}
 
-setInterval(moveHeart, 1000);
+startGame();
