@@ -9,15 +9,19 @@ body {
 
 .heart-container {
     position: relative;
+    width: 150px; /* زيادة الحجم */
+    height: 150px; /* زيادة الحجم */
 }
 
 .heart {
     width: 100px;
     height: 100px;
     background-color: red;
-    position: relative;
+    position: absolute;
     transform: rotate(-45deg);
     animation: bounce 2s infinite;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .heart::before,
