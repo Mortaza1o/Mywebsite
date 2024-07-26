@@ -1,76 +1,48 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0;
-}
-
+/* أنماط القلب المتحرك */
 .heart-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    width: 100vw;
+    margin-top: 20px; /* إضافة مساحة فوق القلب */
 }
 
 .heart {
     position: relative;
-    width: 100px; /* حجم القلب */
-    height: 90px; /* حجم القلب */
+    width: 100px;
+    height: 90px;
     background-color: red;
     transform: rotate(-45deg);
-    animation: bounce 2s infinite;
+    animation: pulse 1.5s infinite;
 }
 
 .heart::before,
 .heart::after {
     content: "";
     position: absolute;
-    width: 100px; /* نفس حجم القلب */
-    height: 100px; /* نفس حجم القلب */
+    width: 100px;
+    height: 100px;
     background-color: red;
     border-radius: 50%;
 }
 
 .heart::before {
-    top: -50px; /* لتحريك النصف العلوي */
+    top: -50px;
     left: 0;
 }
 
 .heart::after {
     top: 0;
-    left: 50px; /* لتحريك النصف الأيمن */
+    left: 50px;
 }
 
-.text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 14px; /* حجم النص */
-    text-align: center;
-    opacity: 0;
-    animation: fadeIn 4s forwards;
-    animation-delay: 2s;
-}
-
-@keyframes bounce {
-    0%, 100% {
-        transform: rotate(-45deg) translateY(0);
+@keyframes pulse {
+    0% {
+        transform: rotate(-45deg) scale(1);
     }
     50% {
-        transform: rotate(-45deg) translateY(-10px); /* حركة الارتداد */
+        transform: rotate(-45deg) scale(1.1);
     }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
+    100% {
+        transform: rotate(-45deg) scale(1);
     }
 }
