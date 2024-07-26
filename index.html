@@ -3,26 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heart Love</title>
+    <title>Catch the Heart Game</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="heart-container">
-        <div class="heart" id="heart">
-            <div class="login-form" id="loginForm">
-                <input type="text" id="username" placeholder="User">
-                <input type="password" id="password" placeholder="Password">
-                <button onclick="checkCredentials()">Submit</button>
-            </div>
-            <div class="message" id="message">أنا أحبج و أحب كل شي بيج ودموعج يخلوني أموت</div>
-            <div class="game" id="game">
-                <h2>اختر لون الخلفية:</h2>
-                <button onclick="changeColor('red')">أحمر</button>
-                <button onclick="changeColor('blue')">أزرق</button>
-                <button onclick="changeColor('green')">أخضر</button>
-                <button onclick="changeColor('yellow')">أصفر</button>
-            </div>
-        </div>
+    <div class="game-container">
+        <div class="score">Score: <span id="score">0</span></div>
+        <div class="heart" id="heart"></div>
     </div>
     <script src="script.js"></script>
 </body>
