@@ -1,9 +1,18 @@
-/* أنماط القلب المتحرك */
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
 .heart-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px; /* إضافة مساحة فوق القلب */
+    width: 100vw;
+    height: 100vh;
 }
 
 .heart {
