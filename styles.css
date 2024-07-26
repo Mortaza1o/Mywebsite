@@ -1,29 +1,48 @@
-const gameArea = document.getElementById('gameArea');
-let score = 0;
-
-function createStar() {
-    const star = document.createElement('div');
-    star.classList.add('star');
-
-    const startPosition = Math.floor(Math.random() * gameArea.offsetWidth);
-    star.style.left = `${startPosition}px`;
-    star.style.animationDuration = `${Math.random() * 3 + 2}s`;
-
-    star.addEventListener('click', () => {
-        score++;
-        document.getElementById('score').innerText = score;
-        star.remove();
-    });
-
-    star.addEventListener('animationend', () => {
-        star.remove();
-    });
-
-    gameArea.appendChild(star);
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
 }
 
-function startGame() {
-    setInterval(createStar, 1000);
+.game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    overflow: hidden;
 }
 
-startGame();
+.score-board {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    color: #fff;
+    z-index: 10;
+}
+
+.star {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff0;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ff0;
+    cursor: pointer;
+    animation: fall linear;
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-20px);
+    }
+    to {
+        transform: translateY(100vh);
+    }
+}
