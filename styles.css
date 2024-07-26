@@ -1,0 +1,71 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.heart-container {
+    position: relative;
+}
+
+.heart {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    position: relative;
+    transform: rotate(-45deg);
+    animation: bounce 2s infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+}
+
+.heart::before {
+    left: 50px;
+}
+
+.heart::after {
+    left: 0;
+}
+
+.text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 4s forwards;
+    animation-delay: 2s;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: rotate(-45deg) translateY(0);
+    }
+    50% {
+        transform: rotate(-45deg) translateY(-20px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
