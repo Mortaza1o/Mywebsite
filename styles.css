@@ -1,48 +1,56 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
+body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #000;
-    font-family: Arial, sans-serif;
-    overflow: hidden;
-}
-
-.game-container {
-    position: relative;
-    width: 100vw;
     height: 100vh;
-    background-color: #000;
-    overflow: hidden;
+    background-color: #f8f8f8;
 }
 
-.score-board {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 24px;
-    color: #fff;
-    z-index: 10;
+.heart {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    transform: rotate(-45deg);
+    margin-bottom: 20px;
 }
 
-.star {
+.heart::before,
+.heart::after {
+    content: '';
     position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: #ff0;
+    width: 200px;
+    height: 200px;
+    background-color: red;
     border-radius: 50%;
-    box-shadow: 0 0 10px #ff0;
-    cursor: pointer;
-    animation: fall linear;
 }
 
-@keyframes fall {
-    from {
-        transform: translateY(-20px);
-    }
-    to {
-        transform: translateY(100vh);
-    }
+.heart::before {
+    top: -100px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 100px;
+}
+
+form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    margin: 5px;
+    padding: 5px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 5px 10px;
 }
