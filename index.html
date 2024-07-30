@@ -4,20 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Love Site</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            max-width: 300px;
+        }
+        #heart {
+            font-size: 50px;
+            color: #e25555;
+            margin-bottom: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+        img {
+            width: 100px;
+            height: auto;
+            margin: 10px;
+            border-radius: 8px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #e25555;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #d64545;
+        }
+    </style>
 </head>
 <body>
-    <div class="heart">
-        <form id="loginForm">
-            <input type="text" id="username" placeholder="Username" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <button type="submit">Submit</button>
-        </form>
+    <div class="container">
+        <div id="heart">❤️</div>
+        <input type="text" id="username" placeholder="User">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="checkCredentials()">Submit</button>
+        <div id="images" class="hidden">
+            <img id="image1" src="image1.jpg" alt="Image 1">
+            <img id="image2" src="image2.jpg" alt="Image 2">
+        </div>
     </div>
-    <div id="images" style="display:none;">
-        <img id="image1" src="image1.jpg" alt="Image 1">
-        <img id="image2" src="image2.jpg" alt="Image 2">
-    </div>
-    <script src="script.js"></script>
+
+    <script>
+        function checkCredentials() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'مرتضى' && password === 'مريم') {
+                document.getElementById('heart').style.display = 'none';
+                document.getElementById('images').classList.remove('hidden');
+            } else {
+                alert('Invalid username or password.');
+            }
+        }
+    </script>
 </body>
 </html>
