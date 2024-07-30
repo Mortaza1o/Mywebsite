@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catch the Falling Stars</title>
+    <title>Love Site</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="game-container">
-        <div class="score-board">
-            Score: <span id="score">0</span>
-        </div>
-        <div id="gameArea" class="game-area"></div>
+    <div class="heart">
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <div id="images" style="display:none;">
+        <img id="image1" src="image1.jpg" alt="Image 1">
+        <img id="image2" src="image2.jpg" alt="Image 2">
     </div>
     <script src="script.js"></script>
 </body>
